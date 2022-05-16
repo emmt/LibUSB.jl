@@ -45,7 +45,7 @@ module_name = "Low"
 jll_pkg_extra = []
 
 # identifiers that starts with the string listed in this entry will be exported.
-export_symbol_prefixes = []
+export_symbol_prefixes = ["libusb_", "LIBUSB_"]
 
 # The code in the following file will be copy-pasted to `output_file_path`
 # before the generated code.
