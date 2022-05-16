@@ -3,6 +3,10 @@ uuid = "1afde568-c220-478b-8c78-633644781b80"
 authors = ["Éric Thiébaut <eric.thiebaut@univ-lyon1.fr> and contributors"]
 version = "0.1.0"
 
+[deps]
+Clang = "40e3b903-d033-50b4-a0cc-940c62c95e31"
+libusb_jll = "a877fdc9-fe69-5ed6-b93d-11ecd0dc2d49"
+
 [compat]
 julia = "1.5"
 
