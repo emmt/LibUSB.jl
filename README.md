@@ -21,7 +21,7 @@ For now, `LibUSB.jl` provides:
 Installing and building the package is as simple as typing the following
 commands in Julia:
 
-```{.jl}
+```julia
 using Pkg
 pkg"add https://github.com/emmt/LibUSB.jl"
 ```
