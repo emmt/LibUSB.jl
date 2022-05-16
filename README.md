@@ -24,5 +24,4 @@ commands in Julia:
 ```{.jl}
 using Pkg
 pkg"add https://github.com/emmt/LibUSB.jl"
-pkg"add https://github.com/emmt/ArcusPerformax.jl"
 ```
