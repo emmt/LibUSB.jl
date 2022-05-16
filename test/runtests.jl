@@ -19,6 +19,8 @@ using Test
         @test list[1] isa eltype(list)
         @test LibUSB.get_device_descriptor(list[1]) isa LibUSB.Low.libusb_device_descriptor
     end
+    io = IOBuffer()
+    @test last(show(io, list) => true)
     @test_throws ErrorException list[1] = eltype(list)(0)
     close(list)
     @test length(list) == 0

@@ -92,10 +92,10 @@ function Base.setindex(list::DeviceList, x, i::Int)
 end
 
 """
-    LibUSB.get_device_descriptor(arg)
+    LibUSB.get_device_descriptor(x)
 
-yields the device desciptor for argument `arg` which can be a device pointer, a
-device handle, etc.
+yields the device descriptor for argument `x` which can be an USB device
+pointer, an USB device handle, etc.
 
 """
 function get_device_descriptor(ptr::DevicePointer)
@@ -104,6 +104,25 @@ function get_device_descriptor(ptr::DevicePointer)
     code = Low.libusb_get_device_descriptor(ptr, desc)
     code == 0 || throw_libusb_error(:libusb_device_descriptor, code)
     return desc[]
+end
+
+function Base.show(io::IO, dev::DevicePointer)
+    print(io, "LibUSB.DevicePointer(0x$(string(UInt(dev), base=16, pad=Sys.WORD_SIZE>>2)))")
+    if !is_null(dev)
+        desc = get_device_descriptor(dev)
+        print(io, " ", string(UInt16(desc.idVendor), base=16, pad=4), ":",
+              string(UInt16(desc.idProduct), base=16, pad=4),
+              " (bus ", Low.libusb_get_bus_number(dev),
+              " device ", Low.libusb_get_device_address(dev), ")")
+        path = Vector{UInt8}(undef, 8)
+        n = Low.libusb_get_port_numbers(dev, path, sizeof(path))
+        if n > 0
+            print(io, " path: ", Int(path[1]))
+            for i in 2:n
+                print(io, ".", Int(path[i]))
+            end
+        end
+    end
 end
 
 #------------------------------------------------------------------------------
@@ -126,7 +145,7 @@ mutable struct DeviceHandle
         descriptor = get_device_descriptor(device)
         handle = Ref{DeviceHandlePointer}()
         code = Low.libusb_open(device, handle)
-        code == 0 || throw(LibUSBError(:libusb_open, code))
+        code == 0 || throw_libusb_error(:libusb_open, code)
         return finalizer(close, new(handle[], descriptor))
     end
 end
