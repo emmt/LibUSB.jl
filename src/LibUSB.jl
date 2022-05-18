@@ -152,8 +152,10 @@ end
 
 Base.open(dev::DevicePointer) = DeviceHandle(dev)
 
+Base.isopen(obj::DeviceHandle) = !is_null(obj.handle)
+
 function Base.close(obj::DeviceHandle)
-    if !is_null(obj.handle)
+    if isopen(obj)
         Low.libusb_close(obj.handle)
         obj.handle = null(DeviceHandlePointer)
     end
