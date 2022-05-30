@@ -134,7 +134,7 @@ end
 
 open USB device `dev` and returns an object connected to this device.  The two
 functions are equivalent.  The connection is automatically closed when the
-returned object is garbage collected.  It is thus not needed to call the
+returned object is garbage collected.  It is thus not mandatory to call the
 `close` method on the object.
 
 """
