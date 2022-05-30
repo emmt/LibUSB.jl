@@ -18,8 +18,25 @@ For now, `LibUSB.jl` provides:
 
 # Installation
 
-Installing and building the package is as simple as typing the following
+If you are using [my custom registry](https://github.com/emmt/EmmtRegistry),
+installing and building the package is as simple as typing the following
 commands in Julia:
+
+```julia
+using Pkg
+pkg"add LibUSB"
+```
+
+To use my custom registry, type the following commands (once and before
+the command `pkg"add LibUSB"` above):
+
+```julia
+using Pkg
+pkg"registry add General" # if no general registry has been installed yet
+pkg"registry add https://github.com/emmt/EmmtRegistry"
+```
+
+If you prefer to not use my custom registry, just do:
 
 ```julia
 using Pkg
