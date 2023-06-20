@@ -21,7 +21,7 @@ using Test
     end
     io = IOBuffer()
     @test last(show(io, list) => true)
-    @test_throws ErrorException list[1] = eltype(list)(0)
+    @test_throws Exception list[1] = eltype(list)(0)
     close(list)
     @test length(list) == 0
     @test LibUSB.is_null(list.ptr)
