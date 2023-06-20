@@ -9,7 +9,7 @@ libusb_jll = "a877fdc9-fe69-5ed6-b93d-11ecd0dc2d49"
 
 [compat]
 julia = "1.6"
-Clang = "0.15"
+Clang = "≥0.15"
 libusb_jll = "1.0"
 
 [extras]
