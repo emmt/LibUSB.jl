@@ -1,5 +1,3 @@
-using Pkg
-Pkg.build("LibUSB")
 let filename = joinpath(@__DIR__, "reallyruntests.jl")
     @info """
     If package LibUSB has been successfully built, you may test it if you have
