@@ -11,9 +11,9 @@ For now, `LibUSB.jl` provides:
   by [`Clang.jl`](https://github.com/JuliaInterop/Clang.jl).
 
 - Some functions and types to manage errors and USB devices in a higher level
-  interface.  This part should grow as needed by other packages
-  (e.g. [ArcusPerformax.jl](https://github.com/emmt/ArcusPerformax.jl)).
-  Nothing is exported so everuthing is prefixed by the module name `LibUSB`.
+  interface. This part should grow as needed by other packages (e.g.
+  [ArcusPerformax.jl](https://github.com/emmt/ArcusPerformax.jl)). Nothing is
+  exported, so everything is prefixed by the module name `LibUSB`.
 
 
 # Installation

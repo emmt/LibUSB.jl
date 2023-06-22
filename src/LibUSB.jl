@@ -132,9 +132,9 @@ end
     open(dev)
     LibUSB.DeviceHandle(dev)
 
-open USB device `dev` and returns an object connected to this device.  The two
-functions are equivalent.  The connection is automatically closed when the
-returned object is garbage collected.  It is thus not mandatory to call the
+open USB device `dev` and returns an object connected to this device. The two
+functions are equivalent. The connection is automatically closed when the
+returned object is garbage collected. It is thus not mandatory to call the
 `close` method on the object.
 
 """
@@ -233,4 +233,4 @@ function __init__()
     return nothing
 end
 
-end
+end # module
