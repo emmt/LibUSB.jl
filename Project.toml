@@ -1,7 +1,7 @@
 name = "LibUSB"
 uuid = "1afde568-c220-478b-8c78-633644781b80"
 authors = ["Éric Thiébaut <eric.thiebaut@univ-lyon1.fr> and contributors"]
-version = "0.1.4"
+version = "0.1.5"
 
 [deps]
 Clang = "40e3b903-d033-50b4-a0cc-940c62c95e31"
